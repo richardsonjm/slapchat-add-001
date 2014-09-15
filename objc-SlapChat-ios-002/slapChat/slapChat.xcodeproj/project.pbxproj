@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7238051E19C745A0004A931E /* FISAddMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7238051D19C745A0004A931E /* FISAddMessageViewController.m */; };
 		D879F339195E028000FC5285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F338195E028000FC5285 /* Foundation.framework */; };
 		D879F33B195E028000FC5285 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33A195E028000FC5285 /* CoreGraphics.framework */; };
 		D879F33D195E028000FC5285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33C195E028000FC5285 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7238051C19C745A0004A931E /* FISAddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAddMessageViewController.h; sourceTree = "<group>"; };
+		7238051D19C745A0004A931E /* FISAddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAddMessageViewController.m; sourceTree = "<group>"; };
 		D879F335195E028000FC5285 /* slapChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slapChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D879F338195E028000FC5285 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D879F33A195E028000FC5285 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +93,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7238051A19C741E6004A931E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D879F378195E032D00FC5285 /* FISTableViewController.h */,
+				D879F379195E032D00FC5285 /* FISTableViewController.m */,
+				7238051C19C745A0004A931E /* FISAddMessageViewController.h */,
+				7238051D19C745A0004A931E /* FISAddMessageViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7238051B19C741FB004A931E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */,
+				D879F37B1960928D00FC5285 /* Message.h */,
+				D879F37C1960928D00FC5285 /* Message.m */,
+				D879F370195E02B400FC5285 /* FISDataStore.h */,
+				D879F371195E02B400FC5285 /* FISDataStore.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D879F32C195E028000FC5285 = {
 			isa = PBXGroup;
 			children = (
@@ -124,16 +150,11 @@
 		D879F33E195E028000FC5285 /* slapChat */ = {
 			isa = PBXGroup;
 			children = (
-				D879F37B1960928D00FC5285 /* Message.h */,
-				D879F37C1960928D00FC5285 /* Message.m */,
-				D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */,
-				D879F370195E02B400FC5285 /* FISDataStore.h */,
-				D879F371195E02B400FC5285 /* FISDataStore.m */,
+				7238051B19C741FB004A931E /* Models */,
 				D879F347195E028000FC5285 /* FISAppDelegate.h */,
 				D879F348195E028000FC5285 /* FISAppDelegate.m */,
 				D879F34A195E028000FC5285 /* Main.storyboard */,
-				D879F378195E032D00FC5285 /* FISTableViewController.h */,
-				D879F379195E032D00FC5285 /* FISTableViewController.m */,
+				7238051A19C741E6004A931E /* View Controllers */,
 				D879F350195E028000FC5285 /* Images.xcassets */,
 				D879F33F195E028000FC5285 /* Supporting Files */,
 			);
@@ -271,6 +292,7 @@
 				D879F37D1960928D00FC5285 /* Message.m in Sources */,
 				D879F375195E02C000FC5285 /* slapChat.xcdatamodeld in Sources */,
 				D879F372195E02B400FC5285 /* FISDataStore.m in Sources */,
+				7238051E19C745A0004A931E /* FISAddMessageViewController.m in Sources */,
 				D879F349195E028000FC5285 /* FISAppDelegate.m in Sources */,
 				D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */,
 			);

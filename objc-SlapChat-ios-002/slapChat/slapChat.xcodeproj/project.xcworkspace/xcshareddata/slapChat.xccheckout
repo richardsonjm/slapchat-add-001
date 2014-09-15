@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>4ABE423B-DCFB-417A-98A4-34CE56C6B173</string>
+	<string>898C284F-2355-4201-91F7-6F2D132986E0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>slapChat</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>61511C17-B8D3-4F9B-A99D-3A3EC0F22966</key>
-		<string>ssh://github.com/flatiron-school-students/objc-SlapChat-ios-002.git</string>
+		<key>DC732D88-57BE-4370-8FB4-B306475ED014</key>
+		<string>ssh://github.com/flatiron-school-curriculum/slapchat-add.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>slapChat/slapChat.xcodeproj/project.xcworkspace</string>
+	<string>objc-SlapChat-ios-002/slapChat/slapChat.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>61511C17-B8D3-4F9B-A99D-3A3EC0F22966</key>
-		<string>../../..</string>
+		<key>DC732D88-57BE-4370-8FB4-B306475ED014</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/flatiron-school-students/objc-SlapChat-ios-002.git</string>
+	<string>ssh://github.com/flatiron-school-curriculum/slapchat-add.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>61511C17-B8D3-4F9B-A99D-3A3EC0F22966</string>
+	<string>DC732D88-57BE-4370-8FB4-B306475ED014</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>61511C17-B8D3-4F9B-A99D-3A3EC0F22966</string>
+			<string>DC732D88-57BE-4370-8FB4-B306475ED014</string>
 			<key>IDESourceControlWCCName</key>
-			<string>objc-SlapChat-ios-002</string>
+			<string>slapchat-add</string>
 		</dict>
 	</array>
 </dict>
