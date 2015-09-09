@@ -26,6 +26,7 @@
 		D879F377195E030C00FC5285 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F376195E030C00FC5285 /* CoreData.framework */; };
 		D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F379195E032D00FC5285 /* FISTableViewController.m */; };
 		D879F37D1960928D00FC5285 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F37C1960928D00FC5285 /* Message.m */; };
+		FB91EED7E377B16725D4D6DD /* libPods-slapChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0AF4BF4A7270F787F9758E /* libPods-slapChatTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BACCE54E74EA54EE523DFED /* Pods-slapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-slapChatTests/Pods-slapChatTests.release.xcconfig"; sourceTree = "<group>"; };
+		0E0AF4BF4A7270F787F9758E /* libPods-slapChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-slapChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7238051C19C745A0004A931E /* FISAddMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISAddMessageViewController.h; sourceTree = "<group>"; };
 		7238051D19C745A0004A931E /* FISAddMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAddMessageViewController.m; sourceTree = "<group>"; };
+		BBC9DBAC9A0F300B289A2BCB /* Pods-slapChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slapChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-slapChatTests/Pods-slapChatTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D879F335195E028000FC5285 /* slapChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slapChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D879F338195E028000FC5285 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D879F33A195E028000FC5285 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,12 +91,22 @@
 				D879F358195E028000FC5285 /* XCTest.framework in Frameworks */,
 				D879F35A195E028000FC5285 /* UIKit.framework in Frameworks */,
 				D879F359195E028000FC5285 /* Foundation.framework in Frameworks */,
+				FB91EED7E377B16725D4D6DD /* libPods-slapChatTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59D20D61688490C9C615F3F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBC9DBAC9A0F300B289A2BCB /* Pods-slapChatTests.debug.xcconfig */,
+				0BACCE54E74EA54EE523DFED /* Pods-slapChatTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7238051A19C741E6004A931E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +137,7 @@
 				D879F35D195E028000FC5285 /* slapChatTests */,
 				D879F337195E028000FC5285 /* Frameworks */,
 				D879F336195E028000FC5285 /* Products */,
+				59D20D61688490C9C615F3F0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +158,7 @@
 				D879F33A195E028000FC5285 /* CoreGraphics.framework */,
 				D879F33C195E028000FC5285 /* UIKit.framework */,
 				D879F357195E028000FC5285 /* XCTest.framework */,
+				0E0AF4BF4A7270F787F9758E /* libPods-slapChatTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D879F36A195E028000FC5285 /* Build configuration list for PBXNativeTarget "slapChatTests" */;
 			buildPhases = (
+				D015805331F5155A61E597FF /* Check Pods Manifest.lock */,
 				D879F352195E028000FC5285 /* Sources */,
 				D879F353195E028000FC5285 /* Frameworks */,
 				D879F354195E028000FC5285 /* Resources */,
+				67F3E33E087BA139BD31FBBB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,6 +300,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		67F3E33E087BA139BD31FBBB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-slapChatTests/Pods-slapChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D015805331F5155A61E597FF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D879F331195E028000FC5285 /* Sources */ = {
@@ -442,6 +493,7 @@
 		};
 		D879F36B195E028000FC5285 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBC9DBAC9A0F300B289A2BCB /* Pods-slapChatTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/slapChat.app/slapChat";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -464,6 +516,7 @@
 		};
 		D879F36C195E028000FC5285 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BACCE54E74EA54EE523DFED /* Pods-slapChatTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/slapChat.app/slapChat";
 				FRAMEWORK_SEARCH_PATHS = (
