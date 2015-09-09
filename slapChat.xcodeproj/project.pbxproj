@@ -20,12 +20,12 @@
 		D879F359195E028000FC5285 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F338195E028000FC5285 /* Foundation.framework */; };
 		D879F35A195E028000FC5285 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F33C195E028000FC5285 /* UIKit.framework */; };
 		D879F362195E028000FC5285 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D879F360195E028000FC5285 /* InfoPlist.strings */; };
-		D879F364195E028000FC5285 /* slapChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F363195E028000FC5285 /* slapChatTests.m */; };
 		D879F372195E02B400FC5285 /* FISDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F371195E02B400FC5285 /* FISDataStore.m */; };
 		D879F375195E02C000FC5285 /* slapChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */; };
 		D879F377195E030C00FC5285 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F376195E030C00FC5285 /* CoreData.framework */; };
 		D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F379195E032D00FC5285 /* FISTableViewController.m */; };
 		D879F37D1960928D00FC5285 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F37C1960928D00FC5285 /* Message.m */; };
+		E25DE0221BA0F05B0083651F /* FISAddMessageViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E25DE0211BA0F05B0083651F /* FISAddMessageViewControllerSpec.m */; };
 		FB91EED7E377B16725D4D6DD /* libPods-slapChatTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E0AF4BF4A7270F787F9758E /* libPods-slapChatTests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,6 @@
 		D879F357195E028000FC5285 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D879F35F195E028000FC5285 /* slapChatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "slapChatTests-Info.plist"; sourceTree = "<group>"; };
 		D879F361195E028000FC5285 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D879F363195E028000FC5285 /* slapChatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = slapChatTests.m; sourceTree = "<group>"; };
 		D879F370195E02B400FC5285 /* FISDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISDataStore.h; sourceTree = "<group>"; };
 		D879F371195E02B400FC5285 /* FISDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISDataStore.m; sourceTree = "<group>"; };
 		D879F374195E02C000FC5285 /* slapChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = slapChat.xcdatamodel; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		D879F379195E032D00FC5285 /* FISTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISTableViewController.m; sourceTree = "<group>"; };
 		D879F37B1960928D00FC5285 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		D879F37C1960928D00FC5285 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		E25DE0211BA0F05B0083651F /* FISAddMessageViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISAddMessageViewControllerSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +191,7 @@
 		D879F35D195E028000FC5285 /* slapChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				D879F363195E028000FC5285 /* slapChatTests.m */,
+				E25DE0211BA0F05B0083651F /* FISAddMessageViewControllerSpec.m */,
 				D879F35E195E028000FC5285 /* Supporting Files */,
 			);
 			path = slapChatTests;
@@ -353,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D879F364195E028000FC5285 /* slapChatTests.m in Sources */,
+				E25DE0221BA0F05B0083651F /* FISAddMessageViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
