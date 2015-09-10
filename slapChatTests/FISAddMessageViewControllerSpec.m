@@ -26,6 +26,7 @@ describe(@"FISAddMessageViewController", ^{
     __block NSString *messageEntity;
     __block FISDataStore *dataStore;
     
+
     __block UINavigationController *navController;
     
     beforeAll(^{
