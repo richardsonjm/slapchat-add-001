@@ -12,6 +12,7 @@
 
 @interface FISAddMessageViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @property (weak, nonatomic) IBOutlet UITextField *messageContentField;
 @end
 
@@ -20,7 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.saveButton.accessibilityLabel = @"saveButton";
+    self.messageContentField.accessibilityLabel = @"messageField";
 }
 
 - (IBAction)saveMessageButtonTapped:(id)sender {

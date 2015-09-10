@@ -8,7 +8,7 @@
         <!--Add Message View Controller-->
         <scene sceneID="zkO-ua-USv">
             <objects>
-                <viewController id="vn8-4Z-mw3" customClass="FISAddMessageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addMessageVC" id="vn8-4Z-mw3" customClass="FISAddMessageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9O-kK-UMY"/>
                         <viewControllerLayoutGuide type="bottom" id="iln-6C-vlX"/>
@@ -45,6 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="messageContentField" destination="dFX-Yd-gtO" id="kXN-pK-A1d"/>
+                        <outlet property="saveButton" destination="nXG-Dt-Cxj" id="9px-nR-Op0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXB-9l-c79" userLabel="First Responder" sceneMemberID="firstResponder"/>

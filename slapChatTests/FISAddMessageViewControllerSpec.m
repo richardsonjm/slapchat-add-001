@@ -25,9 +25,13 @@ describe(@"FISAddMessageViewController", ^{
     __block NSManagedObjectContext *moContext;
     __block NSString *messageEntity;
     __block FISDataStore *dataStore;
+    __block NSArray *originalSavedMessages;
+    __block FISAddMessageViewController *addMessageVC;
     
-
-    __block UINavigationController *navController;
+    __block UITextField *messageField;
+    __block NSString *messageFieldAccessLabel;
+    __block UIButton *saveButton;
+    __block NSString *saveButtonAccessLabel;
     
     beforeAll(^{
         // this could be a class method in a helper class that returns a MOC
@@ -37,67 +41,76 @@ describe(@"FISAddMessageViewController", ^{
         
         [persistentStoreCoordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
         
-        moContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        moContext = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
         [moContext setPersistentStoreCoordinator: persistentStoreCoordinator];
         
-        messageEntity = @"Message";
         dataStore = [FISDataStore sharedDataStore];
         [dataStore setValue:moContext forKey:@"_managedObjectContext"];
         dataStore.messages = nil;
-        
-        // you cant save/fetch here, cause of the "generateTestData" clause
-        // thats written into the dataStore's "fetchData". (if count == 0 generateTestData)
-        // SO, you have to save/fetch AFTER you save something so it doesnt auto make stuff
-        
-        // a solution would be to swizzle out the generateTestData method ...
-        // OR swizzle out the [FISDataStore sharedDataStore] method to return a testDataStore class or something.
-        
-        // another thought is to write tests knowing that generateTestData happens.
-        // get a count of the items with a fresh MOC and save/fetch, then run all tests (number wise) against that original count like expect(count)toEqual(originalCount+1)
+
+        // you have fetch/save here cause of (if count == 0 generateTestData) clause written into fetchData
+        [dataStore fetchData];
+        [dataStore saveContext];
+        originalSavedMessages = dataStore.messages;
+
+        // now our in memory MOContext is setup, and the VC's wont mess it up if they 'fetchData'
+            // another solution would be to swizzle out the generateTestData method ...
         
         UIWindow *window = [[UIApplication sharedApplication].delegate window];
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        navController = [mainStoryboard instantiateInitialViewController];
-//        FISTableViewController *mainTVC = navController.visibleViewController;
-        window.rootViewController = navController;
+        addMessageVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"addMessageVC"];
+        [window setRootViewController: addMessageVC];
         [window makeKeyAndVisible];
         
-        // !!! putting the VC on the screen messes all the coredata stuff up
-        // looks like if we want to test the "app" (which is really only making sure it does the rudimentary bs of
-        // add button segues and VC can be dismissed) we have to swizzle out the method or datastore entirely.
+        messageEntity = @"Message";
         
-        // makes me feel like we should just ignore the view stuff and do as much in the background as possible.
-        // however, in more complicated ones, we'll have to figure out a way around this.
-        
-        // oh i guess we could also do that idea where we just rely on it having 3 objects from the start...
-    });
-    
-    it(@"is accessible via addButton with accessibilityLabel", ^{
-        // is this actually necessary?
-        // at this stage of the program, should we still be testing for things like this? // EDIT see !!! above
-        [tester tapViewWithAccessibilityLabel:@"addButton"];
-        [tester waitForAbsenceOfViewWithAccessibilityLabel:@"mainTableView"];
-        expect(navController.visibleViewController).to.beMemberOf([FISAddMessageViewController class]);
-    });
-    
-    it(@"can add a message to the context", ^{
-        expect(dataStore.messages.count).to.equal(0);
+        messageFieldAccessLabel = @"messageField";
+        messageField = (UITextField*)[tester waitForViewWithAccessibilityLabel: messageFieldAccessLabel];
 
-        Message *newMessage = [NSEntityDescription insertNewObjectForEntityForName:messageEntity inManagedObjectContext: moContext];
+        saveButtonAccessLabel = @"saveButton";
+        saveButton = (UIButton*)[tester waitForViewWithAccessibilityLabel: saveButtonAccessLabel];
+    });
+    
+    describe(@"messageField", ^{
+
+        it(@"is accessible via accessibilityLabel", ^{
+            expect(messageField).toNot.beNil();
+        });
         
-        [dataStore saveContext];
+        it(@"has userInteractionEnabled", ^{
+            expect(messageField.userInteractionEnabled).to.beTruthy();
+        });
+        
+        it(@"is editable", ^{
+            NSString *testMessage = @"test message";
+            [tester enterText:testMessage intoViewWithAccessibilityLabel: messageFieldAccessLabel];
+            expect(messageField.text).to.equal(testMessage);
+        });
+        
+        afterAll(^{
+            [tester clearTextFromViewWithAccessibilityLabel:messageFieldAccessLabel];
+        });
+    });
+    
+    describe(@"saveButton", ^{
+        
+        it(@"is accessible via accessibilityLabel", ^{
+            expect(saveButton).toNot.beNil();
+        });
+        
+        it(@"has userInteractionEnabled", ^{
+            expect(saveButton.userInteractionEnabled).to.beTruthy();
+        });
+    });
+    
+    it(@"can save a message to the dataStore", ^{
+        NSString *testMessage = @"test message";
+        [tester enterText: testMessage intoViewWithAccessibilityLabel: messageFieldAccessLabel];
+        [tester tapViewWithAccessibilityLabel: saveButtonAccessLabel];
+        [tester waitForTimeInterval:0.5];
         [dataStore fetchData];
-        
-        expect(dataStore.messages.count).to.equal(1);
-        expect(dataStore.messages).to.equal(@[newMessage]);
-    });  
-    
-    afterEach(^{
-
-    });
-    
-    afterAll(^{
-
+        Message *newlyAddedMessage = [dataStore.messages lastObject];
+        expect(newlyAddedMessage.content).to.equal(testMessage);
     });
 });
 
