@@ -13,7 +13,7 @@ Open up the project. We've set up a blank tableview controller and started `FISD
 
 ###Core Data Setup
 Before we work on any views, we need to prepare our models for core data. 
-This part has much more 'explaining' than 'coding', but its important! So **soak up the knowledge.**
+This part has much more 'explaining' than 'coding', but it's important! So **soak up the knowledge.**
 
 #####Data Model
 
@@ -29,7 +29,7 @@ Our `.xcdatamodeld` is setup, so now let's setup `FISDataStore` so that it can f
 #####Data Store
 
 1. Check out `FISDataStore.m`. We've set a few things up for you: singleton, `saveContext`, and a section titled `Core Data Stack` where the getter for an `NSManagedObjectContext` property is being overridden. Let's look at that getter.
-   1. There's necessary boilerplate (read: boring, apple-provided) code for linking an `NSManagedObjectContext` to your `.xcdatamodeld`, and we've thrown it in the getter for our context property. This is good because the context needs to be setup a particular way, and overriding the getter allows us to properly set it up whenever it may need.
+   1. There's necessary boilerplate (read: boring, Apple-provided) code for linking an `NSManagedObjectContext` to your `.xcdatamodeld`, and we've thrown it in the getter for our context property. This is good because the context needs to be setup a particular way, and overriding the getter allows us to properly set it up whenever it may need.
    2. Notice that there are two auto-complete sections within this method. Enter the name of your .xcdatamodeld (`@"slapChat"`), linking your data model to a SQLite database. Read through the boilerplate and try to make sense of it.
 3. We already setup `saveContext` because it's simply more boilerplate. Your task is to setup `fetchData`.
    - This is FISData*Store*, so add a public `NSArray` property to hold your fetched objects. Name it `messages`.
