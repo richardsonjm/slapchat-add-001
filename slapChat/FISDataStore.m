@@ -7,11 +7,9 @@
 //
 
 #import "FISDataStore.h"
-#import "Message.h"
 
 @implementation FISDataStore
 @synthesize managedObjectContext = _managedObjectContext;
-
 
 + (instancetype)sharedDataStore {
     static FISDataStore *_sharedDataStore = nil;
@@ -37,22 +35,26 @@
     }
 }
 
-#pragma mark - Core Data stack
+//- (void)fetchData
+//{
+    // perform a fetch request to fill an array property on your datastore
+//}
 
-// Returns the managed object context for the application.
+#pragma mark - Core Data Stack
+
+// Managed Object Context property getter. This is where we've dropped our "boilerplate" code.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
-
-
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"slapChat.sqlite"];
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"<#XCDATAMODELD_NAME#>.sqlite"];
 
     NSError *error = nil;
 
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"slapChat" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"<#XCDATAMODELD_NAME#>" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
 
@@ -64,45 +66,12 @@
     return _managedObjectContext;
 }
 
+
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-
-- (void)generateTestData
-{
-    Message *messageOne = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
-    
-    messageOne.content = @"Message 1";
-    messageOne.createdAt = [NSDate date];
-    
-    Message *messageTwo = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
-    messageTwo.content = @"Message 2";
-    messageTwo.createdAt = [NSDate date];
-    
-    Message *messageThree = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
-    
-    messageThree.content = @"Message 3";
-    messageThree.createdAt = [NSDate date];
-    [self saveContext];
-    [self fetchData];
-}
-
-- (void)fetchData
-{
-    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
-
-    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES];
-    messagesRequest.sortDescriptors = @[createdAtSorter];
-
-    self.messages = [self.managedObjectContext executeFetchRequest:messagesRequest error:nil];
-
-    if ([self.messages count]==0) {
-        [self generateTestData];
-    }
 }
 @end
