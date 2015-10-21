@@ -22,6 +22,7 @@
 		D879F372195E02B400FC5285 /* FISDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F371195E02B400FC5285 /* FISDataStore.m */; };
 		D879F377195E030C00FC5285 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F376195E030C00FC5285 /* CoreData.framework */; };
 		D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F379195E032D00FC5285 /* FISTableViewController.m */; };
+		E271A39B1BD80C9C00180BC8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E271A39A1BD80C9C00180BC8 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D879F376195E030C00FC5285 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D879F378195E032D00FC5285 /* FISTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISTableViewController.h; sourceTree = "<group>"; };
 		D879F379195E032D00FC5285 /* FISTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISTableViewController.m; sourceTree = "<group>"; };
+		E271A39A1BD80C9C00180BC8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				D879F379195E032D00FC5285 /* FISTableViewController.m */,
 				D879F350195E028000FC5285 /* Images.xcassets */,
 				D879F33F195E028000FC5285 /* Supporting Files */,
+				E271A39A1BD80C9C00180BC8 /* Launch Screen.storyboard */,
 			);
 			path = slapChat;
 			sourceTree = "<group>";
@@ -203,7 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FIS;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Joe Burgess";
 				TargetAttributes = {
 					D879F355195E028000FC5285 = {
@@ -237,6 +240,7 @@
 			files = (
 				D879F351195E028000FC5285 /* Images.xcassets in Resources */,
 				D879F343195E028000FC5285 /* InfoPlist.strings in Resources */,
+				E271A39B1BD80C9C00180BC8 /* Launch Screen.storyboard in Resources */,
 				D879F34C195E028000FC5285 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +330,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -340,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -372,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -386,6 +391,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slapChat/slapChat-Prefix.pch";
 				INFOPLIST_FILE = "slapChat/slapChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,6 +406,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slapChat/slapChat-Prefix.pch";
 				INFOPLIST_FILE = "slapChat/slapChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
