@@ -35,10 +35,15 @@
     }
 }
 
-//- (void)fetchData
-//{
-    // perform a fetch request to fill an array property on your datastore
-//}
+- (void)fetchData
+{
+    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
+    
+    NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES];
+    messagesRequest.sortDescriptors = @[createdAtSorter];
+    
+    self.messages = [self.managedObjectContext executeFetchRequest:messagesRequest error:nil];
+}
 
 #pragma mark - Core Data Stack
 
@@ -50,11 +55,11 @@
         return _managedObjectContext;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"<#XCDATAMODELD_NAME#>.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"slapChat.sqlite"];
 
     NSError *error = nil;
 
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"<#XCDATAMODELD_NAME#>" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"slapChat" withExtension:@"momd"];
     NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
 
