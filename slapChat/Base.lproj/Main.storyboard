@@ -46,11 +46,62 @@
                             <outlet property="delegate" destination="hSu-IS-LD7" id="q4C-Tt-zNh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NQB-yp-9Jc"/>
+                    <navigationItem key="navigationItem" id="NQB-yp-9Jc">
+                        <nil key="title"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="byx-dR-a9Q">
+                            <connections>
+                                <action selector="addMessage:" destination="hSu-IS-LD7" id="RFE-r3-Emg"/>
+                                <segue destination="8xr-Mw-S1C" kind="push" identifier="addMessage" id="Ce5-wr-iNc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXj-gc-RWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="464" y="145"/>
+        </scene>
+        <!--Add Message View Controller-->
+        <scene sceneID="3OB-0O-hfS">
+            <objects>
+                <viewController id="8xr-Mw-S1C" customClass="FISAddMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZYS-6e-n5X"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sdm-rX-Kv0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8hJ-NJ-OKl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHI-gA-wyd">
+                                <rect key="frame" x="107" y="295" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveMessageButton:" destination="8xr-Mw-S1C" eventType="touchUpInside" id="fZ6-n1-XcG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytw-a9-Ol5">
+                                <rect key="frame" x="107" y="237" width="107" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxZ-WZ-z4w">
+                                <rect key="frame" x="166" y="295" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelNewMessageButton:" destination="8xr-Mw-S1C" eventType="touchUpInside" id="UX9-vP-NKj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bdt-J9-Rrm"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="ytw-a9-Ol5" id="TvV-jA-iZo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXm-fA-zq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="145"/>
         </scene>
     </scenes>
 </document>

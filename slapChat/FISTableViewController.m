@@ -8,8 +8,10 @@
 
 #import "FISTableViewController.h"
 #import "FISMessage.h"
+#import "FISAddMessageViewController.h"
 
 @interface FISTableViewController ()
+- (IBAction)addMessage:(id)sender;
 
 @end
 
@@ -29,6 +31,14 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.store fetchData];
+    [self.tableView reloadData];
+}
+
 - (void)generateTestData {
     FISMessage *message1 = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.store.managedObjectContext];
     message1.content = @"Message number 1";
@@ -45,6 +55,11 @@
     [self.store fetchData];
     self.managedMessageObjects = self.store.messages;
 }
+
+- (IBAction)addMessage:(id)sender {
+    [self performSegueWithIdentifier:@"addMessage" sender:self];
+}
+
 
 #pragma mark - Table view data source
 
@@ -70,7 +85,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:SimpleIdentifier];
     }
     
-    FISMessage *message = self.managedMessageObjects[indexPath.row];
+    FISMessage *message = self.store.messages[indexPath.row];
     
     cell.textLabel.text = message.content;
 
@@ -79,11 +94,11 @@
     return cell;
 }
 
-@end
-
 
 /*
 
 +NSEntityDescription insertNewObjectForEntityForName:inManagedObjectContext:
 
 */
+
+@end
