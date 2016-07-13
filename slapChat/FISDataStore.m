@@ -37,7 +37,7 @@
 
 - (void)fetchData
 {
-    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
+    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"FISMessage"];
     
     NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES];
     messagesRequest.sortDescriptors = @[createdAtSorter];
